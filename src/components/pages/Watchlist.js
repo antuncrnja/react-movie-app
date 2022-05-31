@@ -11,7 +11,7 @@ export const Watchlist = () => {
 	<div className="container">
     <h1>Watchlist</h1>
 
-    {movies.length <= 0 && <p>There are no movies Watchlist</p>}
+    {movies.length <= 0 && <p>There are no movies in Watchlist</p>}
 
     <div className="grid-4">
       {movies.length > 0 && (

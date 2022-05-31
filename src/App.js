@@ -26,3 +26,20 @@ function App() {
 }
 
 export default App;
+
+/*GIT
+    git init
+
+    git config --global user.name 'Thoonx'
+    git config --global user.email 'ggold.zg@gmail.com'
+
+    sudo git remote add origin https://github.com/Thoonx/test1.git
+
+        sudo git add .
+        sudo git commit -m 'update'
+        sudo git push -u origin main -f
+
+    git push -u origin master
+    git checkout dev
+    git pull 
+*/
