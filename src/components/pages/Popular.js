@@ -13,6 +13,7 @@ export const Popular = () => {
   });
   }, [page])
   
+  useEffect(() => {
     fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=${page}`)
 	.then(res => {
     if(res.ok) return res.json();
@@ -22,6 +23,7 @@ export const Popular = () => {
        !data.errors ? setMovies(data.results) : setMovies([])
     })
     .catch(error => console.log(error))
+  }, [page])
 
   return (
 	<div className="container">
