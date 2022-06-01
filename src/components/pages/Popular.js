@@ -14,18 +14,21 @@ export const Popular = () => {
   }, [page])
   
     fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=${page}`)
-	.then(res => res.json())
+	.then(res => {
+    if(res.ok) return res.json();
+    throw new Error('Something went wrong');
+  })
     .then(data => {
-      !data.errors ? setMovies(data.results) : setMovies([])
-
+       !data.errors ? setMovies(data.results) : setMovies([])
     })
+    .catch(error => console.log(error))
 
   return (
 	<div className="container">
     <h1>Popular Movies</h1>
 		<div className="grid-4">
 
-      {movies.length > 0 && (
+      {movies.length <= 0 ? <p>Something went wrong</p> : (
         movies.map( movie => (
           <div className="movie" key={movie.id}>
               <MovieCard key={movie.id} movie={movie} button={true}/>

@@ -1,12 +1,17 @@
 .container {
   width: 96%;
   margin: 50px auto;
+  margin-top: 120px;
   max-width: 1000px;
 }
 
 header{
   background: black;
   color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 a{
@@ -42,7 +47,16 @@ header ul{
   gap: 1rem; 
 }
 
-.grid-4 img{
+@media(max-width: 500px){
+  .grid-4{
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-2{
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.grid-4 img, .grid-2 img{
   width: 100%;
 }
 
