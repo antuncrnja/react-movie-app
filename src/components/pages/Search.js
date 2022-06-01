@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import { Link } from 'react-router-dom'
 import { MovieCard } from '../MovieCard'
 
 export const Search = () => {

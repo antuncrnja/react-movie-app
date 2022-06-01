@@ -93,3 +93,12 @@ button {
 .logo{
   color: #fecc13
 }
+
+iframe{
+  width: 100%;
+  display: block;
+  border: 0;
+  aspect-ratio: 16/9;
+  margin-bottom: 20px;
+  background: black;
+}

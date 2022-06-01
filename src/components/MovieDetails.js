@@ -1,5 +1,6 @@
 import React, { useContext} from 'react'
 import WatchlistContext  from '../context/WatchlistContext'
+import { Trailer } from '../components/Trailer'
 
 export const MovieDetails = ({movie}) => {
 
@@ -13,7 +14,9 @@ export const MovieDetails = ({movie}) => {
 			<div>
 				<h1>{movie.title} <span> {movie.vote_average}</span></h1>
 				<p>{movie.overview}</p>
+				<Trailer id={movie.id}/>
 				<button onClick={() => AddToWatchlist(movie)}> {movies.some(a => a.movie.id === movie.id) ? 'Added' : '+ Add to Watchlist'}</button>
+
 			</div>
 			</div>
 		</div>

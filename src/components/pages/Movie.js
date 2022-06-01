@@ -13,12 +13,11 @@ export const Movie = () => {
 			.then(data => {
 			!data.errors ? setMovie(data) : setMovie([])
 			})
-			console.log(movie)
-		},[])
+		},[movie, params.id])
 	
   return (
 	<div className="container"> 
-		<MovieDetails movie={movie}/>
+		 <MovieDetails movie={movie}/>
 	</div>
   )
 }

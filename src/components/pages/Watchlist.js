@@ -1,5 +1,4 @@
 import React, {useContext} from 'react'
-import { Link } from 'react-router-dom'
 import { MovieCard } from '../../components/MovieCard'
 import WatchlistContext from '../../context/WatchlistContext'
 
