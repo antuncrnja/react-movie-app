@@ -17,7 +17,7 @@ export const Search = () => {
   }
 
   return (
-    <main>
+    <main className='search'>
       <img class="backdrop" src="./bg.jpg" alt="" />
     <div className="overlay"></div>
 	<div className="container">

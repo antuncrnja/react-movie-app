@@ -7,7 +7,7 @@ export const Header = () => {
   return (
 	<header>
 		<div className="container">
-		<Link to="/"><h1 className="logo">It'sThe<span className='main-color'>Base</span></h1></Link>
+		<Link to="/"><h1 className="logo"><span className='main-color'>Base</span></h1></Link>
 
 			<ul className="nav">
 				<li>
