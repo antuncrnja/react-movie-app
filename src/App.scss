@@ -86,8 +86,12 @@ a{
 }
 .grid-2{
   display: grid;
-  grid-template-columns: .7fr 1fr;
+  grid-template-columns: .4fr 1fr;
   gap: 1rem; 
+}
+.sticky{
+  position: sticky;
+  top: 80px;
 }
 .movie-details, .movie-grid {
   padding: 25px;
