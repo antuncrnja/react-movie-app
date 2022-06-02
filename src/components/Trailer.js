@@ -1,23 +1,16 @@
-import { useState, useEffect } from 'react'
+import { useFetch } from './useFetch'
 
 export const Trailer = ({id}) => {
-	const [video, setVideo] = useState([])
 
-		useEffect(() => {
-			
-			fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`)
-			.then(res => res.json())
-			.then(data => {
-				!data.errors ? setVideo(data) : setVideo([])
-			})
+	const {loading, error, data} = useFetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`)
 
-		},[id])
+	if(loading) return <div className='container'><h1>Loading...</h1></div>
+	if(error) return <div className='container'><h1>Something Went Wrong!</h1></div>
 
   return (
-	 <>
-	 {video?.results && video.results.splice(0, 1).map( trailer => (
-			<iframe key={trailer.key} src={`https://youtube.com/embed/${trailer.key}`} title={trailer.name}/>
-	 ))}
-	 </>
+	 <div className='trailer'>
+		<iframe key={data[0].key} src={`https://youtube.com/embed/${data[0].key}`} title={data[0].name}/>
+		
+	 </div>
   )
 }
