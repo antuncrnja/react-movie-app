@@ -27,10 +27,21 @@ export const Popular = () => {
   }, [page])
 */
   return (
+    <main className='home'>
+      <img class="backdrop" src="./bg.jpg" alt="" />
+      <div className="overlay"></div>
+     
 	<div className="container">
-    <ScrollToTop dep={page} />
 
-    <h1>Popular Movies</h1>
+<div className="logo-wrapper">
+  <h1 className="logo">It'sThe<span className='main-color'>Base</span></h1>
+  <p>The Movie Database</p>
+</div>
+  
+
+    <ScrollToTop dep={page} />
+<div className="movie-grid">
+    <h1>Popular Movies Right Now</h1>
 		<div className="grid-4">
 
     {data.map( movie => (
@@ -44,6 +55,8 @@ export const Popular = () => {
      <Link to={`?page=${page}`}><button onClick={() => setPage(page-1)} disabled={page <= 1}>Prev</button> </Link>
      <Link to={`?page=${page}`}><button onClick={() => setPage(page+1)}>Next</button></Link>
     </div>
+    </div>
   </div>
+  </main>
   )
 }

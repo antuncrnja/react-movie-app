@@ -17,6 +17,9 @@ export const Search = () => {
   }
 
   return (
+    <main>
+      <img class="backdrop" src="./bg.jpg" alt="" />
+    <div className="overlay"></div>
 	<div className="container">
     <h1>Search Movies</h1>
     <input type="search" placeholder="Search Movies" value={query} onChange={handleMovies}/>
@@ -31,5 +34,6 @@ export const Search = () => {
       </div>
     </div>
   </div>
+  </main>
   )
 }

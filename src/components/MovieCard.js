@@ -8,8 +8,8 @@ export const MovieCard = ({movie, button}) => {
   return (
 	<div className="movie-card">
     <Link to={`../Movie/${movie.id}`}>
-        {movie.poster_path ? <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title} /> : <h1>Loading...</h1>}
-      <p>{movie.title}</p>
+        {movie.poster_path ? <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} /> : <h1>Loading...</h1>}
+      <h4>{movie.title}</h4>
      </Link>
 
     {button && <button onClick={() => AddToWatchlist(movie)}>

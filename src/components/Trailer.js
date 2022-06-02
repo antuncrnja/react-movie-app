@@ -5,7 +5,7 @@ export const Trailer = ({id}) => {
 	const {loading, error, data} = useFetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`)
 
 	if(loading) return <div className='container'><h1>Loading...</h1></div>
-	if(error) return <div className='container'><h1>Something Went Wrong!</h1></div>
+	if(error) return 
 
   return (
 	 <div className='trailer'>

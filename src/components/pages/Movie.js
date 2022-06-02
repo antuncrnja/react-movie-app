@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom";
 import { MovieDetails } from '../MovieDetails';
+import { ScrollToTop } from '../ScrollToTop'
 
 export const Movie = () => {
 	let params = useParams();
@@ -19,8 +20,11 @@ export const Movie = () => {
 		console.log(movie)
 
   return (
-	<div className="container"> 
-		 <MovieDetails movie={movie}/>
-	</div>
+	<main>
+		<ScrollToTop/>
+		<div className="container"> 
+			<MovieDetails movie={movie}/>
+		</div>
+	</main>
   )
 }

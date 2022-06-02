@@ -8,11 +8,14 @@ export const MovieDetails = ({movie}) => {
   return (
 	<div className="movie-details">
 			<div className="grid-2">
+				
+			<img className='backdrop' src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt={movie.title} />
+			<div className="overlay"></div>
 			
 			{movie.poster_path ? <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} /> : <h1>Loading...</h1>}
 
 			<div>
-				<h1>{movie.title} <span> {movie.vote_average}</span></h1>
+				<h1>{movie.title} <span className='rating'> {movie.vote_average}<small>/10</small></span></h1>
 				<p>{movie.overview}</p>
 				<Trailer id={movie.id}/>
 				<button onClick={() => AddToWatchlist(movie)}> {movies.some(a => a.movie.id === movie.id) ? 'Added' : '+ Add to Watchlist'}</button>

@@ -1,12 +1,17 @@
 import React, {useContext} from 'react'
 import { MovieCard } from '../../components/MovieCard'
 import WatchlistContext from '../../context/WatchlistContext'
+import { ScrollToTop } from '../ScrollToTop'
 
 export const Watchlist = () => {
   const {movies, RemoveFromWatchlist} = useContext(WatchlistContext)
 
 
   return (
+    <main>
+      <ScrollToTop />
+      <img class="backdrop" src="./bg.jpg" alt="" />
+    <div className="overlay"></div>
 	<div className="container">
     <h1>Watchlist</h1>
 
@@ -23,5 +28,6 @@ export const Watchlist = () => {
           )))}
       </div>
   </div>
+  </main>
   )
 }
