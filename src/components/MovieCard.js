@@ -2,7 +2,7 @@ import React, { useContext} from 'react'
 import { Link } from 'react-router-dom'
 import WatchlistContext  from '../context/WatchlistContext'
 
-export const MovieCard = ({movie, button,removeButton}) => {
+export const MovieCard = ({movie, button,removeButton, hideTitle}) => {
   const {movies, AddToWatchlist, RemoveFromWatchlist} = useContext(WatchlistContext)
 
   return (
@@ -12,7 +12,7 @@ export const MovieCard = ({movie, button,removeButton}) => {
           <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} /> 
           : <h1>Loading...</h1>}
 
-      <h4>{movie.title}</h4>
+     {!hideTitle && <h4>{movie.title}</h4> }
     </Link>
 
     {button && <button onClick={() => AddToWatchlist(movie)}>
