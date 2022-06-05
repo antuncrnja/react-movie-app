@@ -1,6 +1,7 @@
 import React, { useContext} from 'react'
 import WatchlistContext  from '../context/WatchlistContext'
 import { Trailer } from '../components/Trailer'
+import { motion } from 'framer-motion'
 
 export const MovieDetails = ({movie}) => {
 
@@ -12,14 +13,28 @@ export const MovieDetails = ({movie}) => {
 			<img className='backdrop' src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt={movie.title} />
 			<div className="overlay"></div>
 			
-			{movie.poster_path ? <img className='sticky' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} /> : <h1>Loading...</h1>}
+			{/*
+			{movie.poster_path ? <img 
+			className='sticky' 
+			src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} /> 
+			: <h1>Loading...</h1>}
+*/}
+
+<motion.img layoutId={`movie-${movie.id}`} 
+animate={{scale: 1}}
+transition={{
+	default: {duration: .2}, 
+	ease: 'easeInOut'
+  }}
+			className='sticky' 
+			src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} /> 
 
 			<div>
 				<h1>{movie.title}</h1>
 				
 				<div className="genres">
 					{movie?.genres && movie.genres.map(genre=>(
-						<span className='genre'>{genre.name}</span>
+						<span className='genre' key={genre.id}>{genre.name}</span>
 					))}
 				</div>
 				<span className='rating'> Rating: {movie.vote_average}</span><br />

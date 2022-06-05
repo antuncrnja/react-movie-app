@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { MovieCard } from '../MovieCard'
+import { motion } from 'framer-motion'
 
 export const Search = () => {
   const [query, setQuery] = useState('')
@@ -18,7 +19,11 @@ export const Search = () => {
 
   return (
     <main className='search'>
-      <img class="backdrop" src="./bg.jpg" alt="" />
+      <motion.img layoutId="test" animate={{scale: 1}} src="../bg.jpg" alt="" style={{width: '100%', height: '500px', margin: '0 auto', objectFit: 'cover'}} transition={{
+          default: {duration: .2}, 
+          ease: 'easeInOut'
+        }} />
+      <img className="backdrop" src="./bg.jpg" alt="" />
     <div className="overlay"></div>
 	<div className="container">
     <h1>Search Movies</h1>

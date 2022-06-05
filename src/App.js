@@ -5,23 +5,25 @@ import { Search } from './components/pages/Search';
 import { Watchlist } from './components/pages/Watchlist';
 import { Popular } from './components/pages/Popular';
 import { Movie } from './components/pages/Movie';
-
+import { AnimatePresence } from 'framer-motion'
 //Context
 import {WatchlistProvider} from './context/WatchlistContext';
 
 function App() {
   return (
+    <AnimatePresence>
     <WatchlistProvider>
       <Router>
         <Header />
           <Routes>
             <Route index path="/" element={<Popular />}/>
-            <Route path="/Seacrh" element={<Search />}/>
+            <Route path="/Search" element={<Search />}/>
             <Route path="/Watchlist" element={<Watchlist />}/>
             <Route path="/Movie/:id" element={<Movie />}/>
           </Routes>
       </Router>
     </WatchlistProvider>
+    </AnimatePresence>
   );
 }
 

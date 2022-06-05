@@ -16,7 +16,7 @@ export const Watchlist = () => {
 
     {movies.length <= 0 && <p>There are no movies in Watchlist</p>}
 
-    <div className="grid-4">
+    <div className="grid-5">
       {movies.length > 0 && (
             movies.map( item => (
               <div className="movie" key={item.movie.id}>
