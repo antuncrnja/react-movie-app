@@ -9,7 +9,7 @@ export const Header = () => {
 
 	useEffect(() => {
 	window.addEventListener("scroll", () => {
-		setScroll(window.scrollY > 50);
+		setScroll(window.scrollY > 20);
 	});
 	}, []);
   return (
