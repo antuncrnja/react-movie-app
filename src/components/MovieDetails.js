@@ -10,7 +10,7 @@ export const MovieDetails = ({movie}) => {
 	<div className="movie-details">
 			<div className="grid-2">
 				
-			<img className='backdrop' src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt={movie.title} />
+			{movie?.backdrop_path && <img className='backdrop' src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt={movie.title} />}
 			<div className="overlay"></div>
 			
 			{/*
@@ -20,9 +20,7 @@ export const MovieDetails = ({movie}) => {
 			: <h1>Loading...</h1>}
 */}
 
-<img 
-			className='sticky' 
-			src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} /> 
+			{movie?.poster_path && <img className='sticky' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} /> }
 
 			<div>
 				<h1>{movie.title}</h1>
@@ -37,9 +35,6 @@ export const MovieDetails = ({movie}) => {
 				
 				<button onClick={() => AddToWatchlist(movie)}> {movies.some(a => a.movie.id === movie.id) ? 'Added' : '+ Add to Watchlist'}</button>
 				<Trailer id={movie.id}/>
-
-				
-
 			</div>
 			</div>
 		</div>

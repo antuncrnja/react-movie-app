@@ -1,15 +1,9 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import { Link } from 'react-router-dom'
 import { MovieCard } from '../MovieCard'
 import { ScrollToTop } from '../ScrollToTop'
 import { useFetch } from '../useFetch'
 import { HomeLogo } from '../HomeLogo'
-import { motion } from 'framer-motion'
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper';
-import 'swiper/css';
-import 'swiper/css/navigation';
 
 import { useLocation } from "react-router-dom";
 
@@ -17,6 +11,9 @@ export const Popular = () => {
   const query = useLocation().search;
   const queryValue = new URLSearchParams(query).get('page')
   const [page, setPage] = useState(1)
+
+  const scrollRef = useRef(null)
+  const executeScroll = () => scrollRef.current.scrollIntoView({ behavior: 'smooth'})   
 
 useEffect(() =>{
   if(queryValue === null) setPage(1) 
@@ -67,8 +64,8 @@ useEffect(() =>{
         </Swiper>
       </div>
 */}
-  <div className="container" style={{marginTop: 0}}>
-    <ScrollToTop />
+  <div className="container" style={{marginTop: 0}} ref={scrollRef}>
+   
 
 <div className="movie-grid">
     <h1>Popular Movies Right Now</h1>
@@ -88,11 +85,11 @@ useEffect(() =>{
     <div className="paginate container" style={{width: '100%'}}>
 
       <Link to={`?page=${page-1}`}>
-       <button disabled={page <= 1}><span className='button-arrow'>&#x2039;</span> Previous</button>
+       <button onClick={executeScroll} disabled={page <= 1}><span className='button-arrow'>&#x2039;</span> Previous</button>
       </Link>
 
       <Link to={`?page=${page+1}`}>
-        <button>Next <span className='button-arrow'>&#x203A;	</span></button>
+        <button onClick={executeScroll}>Next <span className='button-arrow'>&#x203A;	</span></button>
       </Link>
 
     </div>
