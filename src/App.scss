@@ -187,6 +187,23 @@ a{
   & .movie-card img {
     width: 70px;
 }
+
+& .search-items a{
+    display: flex;
+    padding: 20px 10px;
+    border-bottom: 1px solid #ffffff8a;
+    align-items: center;
+    gap: 1rem;
+    transition: all .1s ease-in-out;
+    
+    &:hover{
+      background: #db1515;
+    }
+}
+
+& .search-items img{
+  width:65px;
+}
 }
 
 @media(max-width: 500px){

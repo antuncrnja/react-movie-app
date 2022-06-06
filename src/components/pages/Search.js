@@ -19,10 +19,11 @@ export const Search = () => {
 
   return (
     <main className='search'>
-      <motion.img layoutId="test" animate={{scale: 1}} src="../bg.jpg" alt="" style={{width: '100%', height: '500px', margin: '0 auto', objectFit: 'cover'}} transition={{
+     {/* <motion.img layoutId="test" animate={{scale: 1}} src="../bg.jpg" alt="" style={{width: '100%', height: '500px', margin: '0 auto', objectFit: 'cover'}} transition={{
           default: {duration: .2}, 
           ease: 'easeInOut'
         }} />
+        */}
       <img className="backdrop" src="./bg.jpg" alt="" />
     <div className="overlay"></div>
 	<div className="container">
