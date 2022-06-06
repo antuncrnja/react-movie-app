@@ -37,14 +37,16 @@ useEffect(() =>{
 	<div className="container">
 
     <HomeLogo />
-    <Link to="/Search">
+   {/*  <Link to="/Search">
     <motion.img layoutId="test" animate={{scale: 1}} src="../bg.jpg" alt="" style={{width: 200, margin: '0 auto'}} transition={{
           default: {duration: .2}, 
           ease: 'easeInOut'
         }} />
         </Link>
+        */}
 </div>
 
+{/*
     <div className="slider">
       <Swiper
      
@@ -64,7 +66,7 @@ useEffect(() =>{
           ))}
         </Swiper>
       </div>
-
+*/}
   <div className="container" style={{marginTop: 0}}>
     <ScrollToTop />
 
@@ -83,14 +85,14 @@ useEffect(() =>{
 
 	  </div>
 
-    <div className="container">
+    <div className="paginate container" style={{width: '100%'}}>
 
       <Link to={`?page=${page-1}`}>
-       <button disabled={page <= 1}>Prev</button>
+       <button disabled={page <= 1}><span className='button-arrow'>&#x2039;</span> Previous</button>
       </Link>
 
       <Link to={`?page=${page+1}`}>
-        <button>Next {page}</button>
+        <button>Next <span className='button-arrow'>&#x203A;	</span></button>
       </Link>
 
     </div>

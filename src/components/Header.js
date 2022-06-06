@@ -15,7 +15,7 @@ export const Header = () => {
   return (
 	<header className={scroll ? 'header-scroll-active' : ''}>
 		<div className="container">
-		<Link to="/"><h1 className="logo"><span className='main-color'>{scroll ? 'B' : 'Base'}</span></h1></Link>
+		<Link to="/"><div className="logo"><span className='main-color'>Base</span></div></Link>
 
 			<ul className="nav">
 				<li>

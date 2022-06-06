@@ -20,12 +20,7 @@ export const MovieDetails = ({movie}) => {
 			: <h1>Loading...</h1>}
 */}
 
-<motion.img layoutId={`movie-${movie.id}`} 
-animate={{scale: 1}}
-transition={{
-	default: {duration: .2}, 
-	ease: 'easeInOut'
-  }}
+<img 
 			className='sticky' 
 			src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} /> 
 
