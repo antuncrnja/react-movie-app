@@ -52,7 +52,7 @@ export const Popular = () => {
       
       {data.sort((a,b)=>{
         if(filter === 'rating') return a.vote_average - b.vote_average
-        if(filter === 'popularity') return  a.popularity - b.popularity
+        if(filter === 'popularity' || filter === '--') return  a.popularity - b.popularity
       }).reverse().map( movie => (
         <div className="movie" key={movie.id}>
             <MovieCard key={movie.id} movie={movie} button={true}/>
