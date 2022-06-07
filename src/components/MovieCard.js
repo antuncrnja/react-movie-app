@@ -1,7 +1,6 @@
 import React, { useContext} from 'react'
 import { Link } from 'react-router-dom'
 import WatchlistContext  from '../context/WatchlistContext'
-import { motion } from 'framer-motion'
 
 
 export const MovieCard = ({movie, button,removeButton, hideTitle}) => {
@@ -14,12 +13,7 @@ export const MovieCard = ({movie, button,removeButton, hideTitle}) => {
           <img 
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
           alt={movie.title} 
-          whileHover={{scale: 1.04}}
-      
-			transition={{
-				default: {duration: .2}, 
-				ease: 'easeInOut'
-			  }} 
+         
         
           /> 
           : <h1>Loading...</h1>}

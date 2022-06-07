@@ -5,6 +5,10 @@ export const useFetch = (url, page) => {
     const [error, setError] = useState(null)
     const [data, setData] = useState(null)
 
+    function test(){
+        alert('test')
+    }
+
     useEffect(() => {
         fetch(url)
         .then(res => {
@@ -24,5 +28,5 @@ export const useFetch = (url, page) => {
       }, [url,page])
 
 
-  return {loading, error, data}
+  return {loading, error, data, test}
 }

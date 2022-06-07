@@ -230,6 +230,21 @@ input[type="search"] {
   outline: none;
 }
 
+select {
+  height: 40px;
+  width: 100%;
+  font-weight: 600;
+  max-width: 150px;
+  border-radius: 5px;
+  border: 1px solid #a3a3a3;
+  padding: 7px;
+  outline: none;
+  margin: 20px 0;
+  cursor: pointer;
+}
+
+
+
 .count{
   background: #db1515;
   width:18px;

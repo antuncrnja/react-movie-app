@@ -1,7 +1,6 @@
 import React, { useContext} from 'react'
 import WatchlistContext  from '../context/WatchlistContext'
 import { Trailer } from '../components/Trailer'
-import { motion } from 'framer-motion'
 
 export const MovieDetails = ({movie}) => {
 
