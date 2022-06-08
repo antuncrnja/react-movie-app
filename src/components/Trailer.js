@@ -15,7 +15,7 @@ export const Trailer = ({id}) => {
 		<div className='trailer'>
 			
 			{!loaded && <Loading text='Loading trailer' />}
-			<iframe className={loaded && 'iframe-loaded'} onLoad={()=> setLoaded(1)}key={data[0].key} src={`https://youtube.com/embed/${data[0].key}`} title={data[0].name}/>
+			{data[0]?.key && <iframe className={loaded && 'iframe-loaded'} onLoad={()=> setLoaded(1)}key={data[0].key} src={`https://youtube.com/embed/${data[0].key}`} title={data[0].name}/> }
 			
 		</div>
 	)

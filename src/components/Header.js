@@ -7,7 +7,6 @@ export const Header = () => {
 	const {movies} = useContext(WatchlistContext)
 	const [scroll, setScroll] = useState(false);
 
-	console.log(location.pathname)
 	useEffect(() => {
 	window.addEventListener("scroll", () => {
 		setScroll(window.scrollY > 20);
