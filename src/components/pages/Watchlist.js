@@ -2,6 +2,7 @@ import React, {useContext} from 'react'
 import { MovieCard } from '../../components/MovieCard'
 import WatchlistContext from '../../context/WatchlistContext'
 import { ScrollToTop } from '../ScrollToTop'
+import {Link} from 'react-router-dom'
 
 export const Watchlist = () => {
   const {movies} = useContext(WatchlistContext)
@@ -14,7 +15,11 @@ export const Watchlist = () => {
         <div className="container">
           <h1>Watchlist</h1>
 
-    {movies.length <= 0 && <p>There are no movies in Watchlist</p>}
+    {movies.length <= 0 && 
+      <div>
+        <p>There are no movies in Watchlist</p>
+        <Link to='../'><button>Browse Movies</button></Link>
+      </div>}
 
     <div className="grid-5">
       {movies.length > 0 && (

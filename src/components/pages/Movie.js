@@ -17,8 +17,6 @@ export const Movie = () => {
 			})
 		},[params.id])
 
-		console.log(movie)
-
   return (
 	<main>
 		<ScrollToTop/>

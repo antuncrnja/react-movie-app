@@ -3,27 +3,21 @@ import { Link } from 'react-router-dom'
 import { MovieCard } from '../MovieCard'
 import { useFetch } from '../useFetch'
 import { HomeLogo } from '../HomeLogo'
-
 import { useLocation } from "react-router-dom";
+import { Loading } from '../Loading'
 
 export const Popular = () => {
-  window.scrollTo({top: 0,left: 0,behavior: 'smooth'})
+  window.scrollTo(0,0)
 
   const query = useLocation().search;
   const queryValue = new URLSearchParams(query).get('page')
 
   const [page, setPage] = useState(1)
+  useEffect(() => queryValue === null ?setPage(1) : setPage(+queryValue),[queryValue])
   
   let {loading, error, data} = useFetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=${page}`, page)
 
-  useEffect(() => queryValue === null ?setPage(1) : setPage(+queryValue),[queryValue])
-
   const [filter, setFilter] = useState('')
-
-  const handleFilter = e => {
-    setFilter(e.target.value)
-    console.log(data)
-  }
 
   if(loading) return <div className='container'><h1>Loading...</h1></div>
   if(error) return <div className='container'><h1>Something Went Wrong!</h1></div>
@@ -33,20 +27,23 @@ export const Popular = () => {
       <img className="backdrop" src="./bg.jpg" alt="" />
       <div className="overlay"></div>
      
-	<div className="container">
+	<div className="container d-m-0">
     <HomeLogo />
   </div>
 
 <div className="container" style={{marginTop: 0}}>
   
 <div className="movie-grid">
-    <h1>Popular Movies Right Now</h1>
 
-    <select onChange={handleFilter}>
-      <option value="--" selected disabled>Select filter</option>
-      <option value="rating">Rating</option>
-      <option value="popularity">Popularity</option>
-    </select>
+  <div className='flex flex-center'>
+    <h1>Popular Right Now</h1>
+
+      <select value={filter} onChange={e => setFilter(e.target.value)}>
+        <option value="popularity">Popularity</option>
+        <option value="rating">Rating</option>
+      </select>
+
+    </div>
 
 		<div className="grid-5">
       

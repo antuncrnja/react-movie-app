@@ -39,6 +39,11 @@ h4{
   max-width: 1300px;
 }
 
+@media(min-width: 900px){
+  .d-m-0{
+    margin: 0 auto
+  }
+}
 img{
   border-radius: 0px;
   max-width: 100%;
@@ -76,7 +81,7 @@ header{
   }
 
   &.header-scroll-active{
-    background: #000000d1;
+    background: #000000a1;
     backdrop-filter: blur(16px);
 
     & ul, .logo{
@@ -161,6 +166,10 @@ a{
   }
 }
 
+button{
+  font-family: inherit;
+}
+
 .movie-details h1{
   font-size: 34px;
 }
@@ -206,7 +215,7 @@ a{
 }
 }
 
-@media(max-width: 500px){
+@media(max-width: 600px){
   .grid-5{
     grid-template-columns: repeat(2, 1fr);
   }
@@ -234,26 +243,37 @@ select {
   height: 40px;
   width: 100%;
   font-weight: 600;
-  max-width: 150px;
+  max-width: 120px;
   border-radius: 5px;
   border: 1px solid #a3a3a3;
   padding: 7px;
   outline: none;
   margin: 20px 0;
   cursor: pointer;
+  background: #db1515;
+  outline: none;
+  border: 0;
+  color: white;
 }
 
+.flex{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: space-between
+}
 
-
-.count{
+.count {
   background: #db1515;
-  width:18px;
+  width: 18px;
   height: 18px;
-  font-size: 12px;
+  font-size: 9px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 50px;
+  position: relative;
+  bottom: 10px;
 }
 
 .paginate{
@@ -271,7 +291,7 @@ select {
   }
 }
 
-@media(min-width: 600px){
+@media(min-width: 900px){
   .paginate button:hover{
     background: #b0b0b0;
   }
@@ -311,7 +331,7 @@ button {
 
 .logo-wrapper{
   text-align: center;
-  margin: 70px 0;
+  margin: 0;
 
   & .logo{
     font-size: 90px;
@@ -326,23 +346,41 @@ button {
 }
 
 .rating {
-  background: #ffc70f;
-  color: black;
-  font-size: 15px;
+  color: white;
+  font-size: 23px;
   padding: 3px 6px;
   border-radius: 5px;
   display: inline-block;
-  font-style: italic;
   font-weight: 700;
+  & svg path{
+    fill: #ffc70f;
+  }
+
+  & svg{
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.loading{
+  display: flex;
+  align-items: center;
 }
 
 iframe{
   width: 100%;
+  max-width: 500px;
   display: block;
   border: 0;
   aspect-ratio: 16/9;
   margin-bottom: 20px;
   background: black;
+  opacity: 0;
+  transition: opacity .2s ease;
+
+  &.iframe-loaded{
+    opacity: 1;
+  }
 }
 
 .movie-card {
@@ -372,8 +410,11 @@ iframe{
 .swiper-button-next, .swiper-button-prev {
   color: white !important;
 }
+.logo-wrapper p {
+  font-weight: 600;
+}
 
-@media(max-width: 600px){
+@media(max-width: 900px){
   body{
     font-size: 15px;
   }
@@ -388,10 +429,14 @@ header .container {
   & ul{
       gap: 0.5rem;
       padding-left: 10px;
+      font-size: 14px;
   }
 }
+select{
+  max-width: 110px;
+}
 h1 {
-  font-size: 20px;
+  font-size: 18px;
 }
 .movie-details, .movie-grid {
   padding: 15px;
