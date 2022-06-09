@@ -1,29 +1,29 @@
 import './App.scss';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Routes, Route, useLocation} from 'react-router-dom'
 import { Header } from './components/Header';
-import { Search } from './components/pages/Search';
-import { Watchlist } from './components/pages/Watchlist';
-import { Popular } from './components/pages/Popular';
-import { Movie } from './components/pages/Movie';
-import { AnimatePresence } from 'framer-motion'
+import { Search } from './pages/Search';
+import { Watchlist } from './pages/Watchlist';
+import { Popular } from './pages/Popular';
+import { Movie } from './pages/Movie';
 //Context
 import {WatchlistProvider} from './context/WatchlistContext';
+import { AnimatePresence } from 'framer-motion';
 
 function App() {
+ const location = useLocation();
+
   return (
-    <AnimatePresence>
     <WatchlistProvider>
-      <Router>
         <Header />
-          <Routes>
-            <Route index path="/" element={<Popular />}/>
-            <Route path="/Search" element={<Search />}/>
-            <Route path="/Watchlist" element={<Watchlist />}/>
+        <AnimatePresence exitBeforeEnter>
+          <Routes location={location} key={location.key}>
+            <Route exact path="/" element={<Popular />}/>
+            <Route exact path="/Search" element={<Search />}/>
+            <Route exact path="/Watchlist" element={<Watchlist />}/>
             <Route path="/Movie/:id" element={<Movie />}/>
           </Routes>
-      </Router>
+          </AnimatePresence>
     </WatchlistProvider>
-    </AnimatePresence>
   );
 }
 

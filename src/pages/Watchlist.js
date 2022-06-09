@@ -1,13 +1,15 @@
 import React, {useContext} from 'react'
-import { MovieCard } from '../../components/MovieCard'
-import WatchlistContext from '../../context/WatchlistContext'
-import { ScrollToTop } from '../ScrollToTop'
+import { MovieCard } from '../components/MovieCard'
+import WatchlistContext from '../context/WatchlistContext'
+import { ScrollToTop } from '../components/ScrollToTop'
 import {Link} from 'react-router-dom'
+import { TransitionPage } from '../components/TransitionPage'
 
 export const Watchlist = () => {
   const {movies} = useContext(WatchlistContext)
 
   return (
+    <TransitionPage>
     <main>
       <ScrollToTop />
       <img class="backdrop" src="./bg.jpg" alt="" />
@@ -31,5 +33,6 @@ export const Watchlist = () => {
       </div>
   </div>
   </main>
+  </TransitionPage>
   )
 }

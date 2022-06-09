@@ -13,13 +13,13 @@ export function WatchlistProvider({children}){
 		localStorage.setItem('watchlist', JSON.stringify(movies))
 	},[movies])
 
-		function AddToWatchlist(movie){
-			if(movies.some( a => a.movie.id === movie.id)) return
-			setMovies( prevState => [...prevState, {movie}])	
-		}
-		function RemoveFromWatchlist(movie){
-			setMovies(movies.filter(a => a.movie.id !== movie) )
-		}
+	function AddToWatchlist(movie){
+		if(movies.some( a => a.movie.id === movie.id)) return
+		setMovies( prevState => [...prevState, {movie}])	
+	}
+	function RemoveFromWatchlist(movie){
+		setMovies(movies.filter(a => a.movie.id !== movie) )
+	}
 
 	return(
 		<WatchlistContext.Provider value={{movies, AddToWatchlist, RemoveFromWatchlist}}>

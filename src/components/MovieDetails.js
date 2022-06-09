@@ -1,6 +1,7 @@
 import React, { useContext} from 'react'
 import WatchlistContext  from '../context/WatchlistContext'
 import { Trailer } from '../components/Trailer'
+import { Loading } from './Loading'
 
 export const MovieDetails = ({movie}) => {
 
@@ -13,7 +14,7 @@ export const MovieDetails = ({movie}) => {
 			{movie?.backdrop_path ? <img className='backdrop' src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt={movie.title} /> : <img className='backdrop' src='../bg.jpg' alt={movie.title} />}
 			<div className="overlay"></div>
 			
-			{movie?.poster_path ? <img className='sticky' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} /> : <img className='sticky' src='../bg.jpg' alt={movie.title} />}
+			{movie?.poster_path ? <img className='sticky' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} /> : <Loading />}
 
 			<div>
 				<h1>{movie.title}</h1>
