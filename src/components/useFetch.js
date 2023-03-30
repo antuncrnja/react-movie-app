@@ -6,15 +6,20 @@ export const useFetch = (url, page) => {
     const [data, setData] = useState(null)
 
     useEffect(() => {
+      setLoading(true)
         fetch(url)
         .then(res => {
             if(res.ok) return res.json();
             throw new Error('Something went wrong');
+            
         })
         .then(data => {
            setData(data.results)
            setLoading(false)
            setError(false)
+          
+            window.scrollTo(0,0);
+        
         })
         .catch(err => {
             console.log(err)
@@ -22,6 +27,7 @@ export const useFetch = (url, page) => {
             setLoading(false)
         })
       }, [url,page])
+
 
   return {loading, error, data}
 }

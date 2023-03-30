@@ -7,23 +7,22 @@ import { Pagination } from '../components/Pagination'
 import { TransitionPage } from '../components/TransitionPage';
 
 export const Popular = () => {
-  window.scrollTo(0,0)
+
 
   const query = useLocation().search;
   const queryValue = new URLSearchParams(query).get('page')
 
-  const [page, setPage] = useState(1)
+  const [page, setPage] = useState(queryValue === null ? 1 : +queryValue)
   const [filter, setFilter] = useState('')
 
-  useEffect(() => queryValue === null ?setPage(1) : setPage(+queryValue),[queryValue])
   
   const {loading, error, data} = useFetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=${page}`, page)
 
-  if(loading) return <div className='container'><h1>Loading...</h1></div>
+  //if(loading) return <div className='container'><h1>Loading...</h1></div>
   if(error) return <div className='container'><h1>Something Went Wrong!</h1></div>
   
   return (
-    <TransitionPage>
+    <>
     <main className='home'>
       <img className="backdrop" src="./bg.jpg" alt="" />
       <div className="overlay"></div>
@@ -48,7 +47,7 @@ export const Popular = () => {
 
 		<div className="grid-5">
       
-      {data.sort((a,b)=>{
+      {data?.sort((a,b)=>{
         if(filter === 'rating') return a.vote_average - b.vote_average
         if(filter === 'popularity' || filter === '') return  a.popularity - b.popularity
       }).reverse().map( movie => (
@@ -58,12 +57,12 @@ export const Popular = () => {
       ))}
 
 	  </div>
-
+    {loading && <h1>Loading movies...</h1>}
     <Pagination page={page}/>
 
     </div>
     </div>
   </main>
-  </TransitionPage>
+  </>
   )
 }
